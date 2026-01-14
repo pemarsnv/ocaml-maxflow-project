@@ -1,4 +1,6 @@
 open Gfile
+open Tools
+open Fordfulk
     
 let () =
 
@@ -26,10 +28,8 @@ let () =
   in
 
   (* Open file *)
-  let graph = from_file infile in
-
+  let graph = gmap (from_file infile) int_of_string in
+  let flow_graph = ford graph _source _sink in
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph in
-
+  let () = export_ford outfile flow_graph in
   ()
-
