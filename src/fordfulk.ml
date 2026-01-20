@@ -59,7 +59,7 @@ let diff_graph g1 g2 =
 let iteration g src tgt =
   let path = depth g src tgt [] [] in
   match path with
-  | [] -> g                      (* arrêt : plus de chemin *)
+  | [] -> g                      
   | _  ->
       let flow = get_flow_btw g src path in
       apply_path g src path flow  
